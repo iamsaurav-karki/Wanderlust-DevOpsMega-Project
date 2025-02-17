@@ -3,7 +3,7 @@ pipeline {
     agent any
     
     environment{
-        SONAR_HOME = tool "sonar-scanner"
+        SONAR_HOME = tool "Sonar-scanner"
     }
     
     parameters {
@@ -53,14 +53,13 @@ pipeline {
             }
         }
         
-        stage("SonarQube: Code Analysis"){
-            steps{
-                script{
-                    sonarqube_analysis("sonar-scanner","wanderlust","wanderlust")
-                }
-            }
+         stage("SonarQube: Code Analysis") {
+          steps {
+               script {
+                  sonarqube_analysis("sonar-server", "wanderlust", "wanderlust", "Sonar-scanner")
         }
-        
+    }
+}
         stage("SonarQube: Code Quality Gates"){
             steps{
                 script{
